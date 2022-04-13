@@ -21,26 +21,27 @@ let arrayPost = [{
         fullName: 'Mattia Cigno',
         photoUser: 'https://picsum.photos/200',
         date,
-        text: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quis nesciunt aut est commodi! Eos consequuntur, est expedita quo quaerat omnis illo praesentium nemo tempore facere, voluptas perspiciatis exercitationem unde alias!',
+        text: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit.',
         likes: 30,
-        image: 'https://picsum.photos/200'
+        image: '<img src="https://picsum.photos/200" alt="" class="postImage">'
     },
     {
         id,
         fullName: 'Maria Rossi',
         photoUser: 'https://picsum.photos/200',
         date,
-        text: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quis nesciunt aut est commodi! Eos consequuntur, est expedita quo quaerat omnis illo praesentium nemo tempore facere, voluptas perspiciatis exercitationem unde alias!',
-        likes: 40
+        text: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit.',
+        likes: 40,
+        image: ''
     },
     {
         id,
         fullName: 'Paolo Osella',
         photoUser: 'https://picsum.photos/200',
         date,
-        text: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quis nesciunt aut est commodi! Eos consequuntur, est expedita quo quaerat omnis illo praesentium nemo tempore facere, voluptas perspiciatis exercitationem unde alias!',
+        text: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit.',
         likes: 60,
-        image: 'https://picsum.photos/200',
+        image: '<img src="https://picsum.photos/200" alt="" class="postImage">'
     }
 ];
 
@@ -69,9 +70,9 @@ function generatePostCard(array) {
         let markupPost = `
         <div class="post">
             <div class="headerPost">
-                <img src="${element.photoUser}" alt="">
+                <img src="${element.photoUser}" class="userImage" alt="">
                 <div>
-                    <div class="name">${element.fullName}</div>
+                    <div class="name"><strong>${element.fullName}</strong></div>
                     <!-- /.name -->
                     <div class="date">${element.date}</div>
                     <!-- /.date -->
@@ -81,16 +82,16 @@ function generatePostCard(array) {
             <div class="mainPost">
                 <p class="text">${element.text}</p>
                 <!-- /.text -->
-                <img src="${element.image}" alt="" class="postImage">
+                ${element.image}
             </div>
             <!-- /.mainPost -->
             <div class="footerPost">
-                <div class="btnLike">
-                <i class="fa-solid fa-thumbs-up"></i>
-                Mi piace
+                <div class="like">
+                    <i class="fa-solid fa-thumbs-up"></i>
+                    <input type="button" class="btnLike" value="Mi piace">
                 </div>
-                <!-- /.btnLike -->
-                <div class="likeCounter">${element.likes}</div>
+                <!-- /.like -->
+                <div class="likeCounter">Piace a <strong>${element.likes}</strong> persone</div>
                 <!-- /.likeCounter -->
             </div>
             <!-- /.footerPost -->
@@ -103,3 +104,16 @@ function generatePostCard(array) {
 }
 
 generatePostCard(arrayPost);
+
+const btnLikes = document.querySelector('.btnLike');
+btnLikes.addEventListener('click', function() {
+    addLike();
+
+})
+
+/**
+ * 
+ */
+function addLike() {
+    console.log('ciao');
+}
